@@ -40,6 +40,7 @@ function serveStatic(response, cache, absPath) {
 }
 
 // create HTTP server
+// NOTE: for every HTTP request, there will be new request and response objects triggering the callback
 var server = http.createServer(function (request, response) {
     var filePath = false;
 
