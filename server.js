@@ -3,6 +3,8 @@ var fs = require('fs');
 var path = require('path');
 var mime = require('mime');
 
+var chatServer = require('./lib/chat_server');
+
 var cache = {}; // cahce file content object
 
 function send404(response) {
@@ -56,3 +58,5 @@ var server = http.createServer(function (request, response) {
 server.listen(6800, function () {
     console.log("Server listening on the port 6800.");
 });
+
+chatServer.listen(server); // share the same TCP/IP port with HTTP server
